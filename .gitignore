@@ -1,0 +1,26 @@
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor / Tooling
+*.log
+*.tmp
+.vscode/
+.idea/
+
+# Claude Code lokale Konfiguration (nicht teilen)
+.claude/settings.local.json
+.claude/worktrees/
+
+# Office Lock-Files (Word/Excel temporäre Dateien)
+~$*
+
+# Alte Arbeitsreste / Müll, gehören nicht ins Repo
+schuhwiedu-final.html
+newbalance.png
+tabs_debug.txt
+docx-extract/
+
+# Lokale Übersicht / Klartext-Plan (kann nach Bedarf raus)
+# PLAN.md
