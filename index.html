@@ -131,9 +131,13 @@
     </nav>
 
     <div class="header-actions">
-      <a href="tel:+4980333089977" class="btn btn-gold btn-compact">
+      <a href="tel:+4980333089977" class="btn btn-gold btn-compact" aria-label="Anrufen 08033 308 99 77">
         <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
         <span>Anrufen</span>
+      </a>
+      <a href="https://maps.google.com/?q=Laurentiusstr.+24,+83080+Oberaudorf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-compact header-route" aria-label="Route zu Laurentiusstraße 24, Oberaudorf">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span>Route</span>
       </a>
       <button class="menu-toggle" id="menuToggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navPrimary">
         <span></span><span></span><span></span>
@@ -452,19 +456,19 @@
       </p>
     </div>
 
-    <div class="reviews-grid">
-      <blockquote class="review-card review-card-featured">
-        <svg class="quote-mark" viewBox="0 0 48 48" aria-hidden="true">
-          <path d="M14 28c0-8 5-13 11-13v4c-3 0-5 2-5 5v1h5v10h-11V28zm17 0c0-8 5-13 11-13v4c-3 0-5 2-5 5v1h5v10H31V28z" fill="currentColor"/>
-        </svg>
-        <div class="stars" aria-label="5 von 5 Sternen">★★★★★</div>
-        <p>Außergewöhnlich gute Beratung! Der Fuß wird mit viel Expertise analysiert und der passende Schuh gefunden. <em>100 km Anfahrt — jeden Kilometer wert.</em></p>
-        <footer class="review-foot">
-          <cite>Thomas W.</cite>
-          <span class="review-context">Google-Bewertung · 5 Sterne</span>
-        </footer>
-      </blockquote>
+    <blockquote class="review-card review-card-featured">
+      <svg class="quote-mark" viewBox="0 0 48 48" aria-hidden="true">
+        <path d="M14 28c0-8 5-13 11-13v4c-3 0-5 2-5 5v1h5v10h-11V28zm17 0c0-8 5-13 11-13v4c-3 0-5 2-5 5v1h5v10H31V28z" fill="currentColor"/>
+      </svg>
+      <div class="stars" aria-label="5 von 5 Sternen">★★★★★</div>
+      <p>Außergewöhnlich gute Beratung! Der Fuß wird mit viel Expertise analysiert und der passende Schuh gefunden. <em>100 km Anfahrt — jeden Kilometer wert.</em></p>
+      <footer class="review-foot">
+        <cite>Thomas W.</cite>
+        <span class="review-context">Google-Bewertung · 5 Sterne</span>
+      </footer>
+    </blockquote>
 
+    <div class="reviews-row">
       <blockquote class="review-card">
         <div class="stars" aria-label="5 von 5 Sternen">★★★★★</div>
         <p>„Hervorragender Service, Freundlichkeit und absolut kompetente Beratung. Durfte mir Zeit lassen und wurde nie gedrängt. Der Schuh passt perfekt!"</p>
@@ -623,18 +627,6 @@
     <p class="footer-copy">© 2004–2026 SCHUHWIEDU</p>
   </div>
 </footer>
-
-<!-- Sticky Mobile-CTAs -->
-<div class="mobile-sticky" aria-hidden="false">
-  <a href="tel:+4980333089977" class="sticky-btn sticky-call">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-    Anrufen
-  </a>
-  <a href="https://maps.google.com/?q=Laurentiusstr.+24,+83080+Oberaudorf" target="_blank" rel="noopener" class="sticky-btn sticky-route">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-    Route
-  </a>
-</div>
 
 <!-- ============ COOKIE-CONSENT BANNER ============ -->
 <div class="cookie-banner" id="cookieBanner" role="dialog" aria-labelledby="cookieTitle" aria-describedby="cookieDesc" hidden>
