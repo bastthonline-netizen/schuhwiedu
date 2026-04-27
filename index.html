@@ -38,7 +38,7 @@
   <link rel="stylesheet" href="fonts/fonts.css">
 
   <!-- ============ Hero-Bild preloaden (LCP-Optimierung) ============ -->
-  <link rel="preload" as="image" href="images/image68.jpeg" fetchpriority="high">
+  <link rel="preload" as="image" href="images/hero-laeufer.png" fetchpriority="high">
 
   <link rel="stylesheet" href="style.css">
 
@@ -117,6 +117,7 @@
 <header class="site-header" id="siteHeader">
   <div class="header-inner">
     <a href="#top" class="logo" aria-label="SCHUHWIEDU Startseite">
+      <img src="images/image1.jpeg" alt="" class="logo-mark" width="40" height="40">
       <span class="logo-text">SCHUH<em>WIEDU</em></span>
     </a>
 
@@ -172,10 +173,8 @@
   </div>
 
   <figure class="hero-visual" aria-hidden="true">
-    <div class="img-placeholder">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
-      <span class="ph-label">Hero-Bild</span>
-      <span class="ph-text">Läufer:in beim Trail-Lauf vor der Bergkulisse Oberaudorf — querformat, hochauflösend (mind. 1600 × 1200 px)</span>
+    <div class="hero-image">
+      <img src="images/hero-laeufer.png" alt="" fetchpriority="high" decoding="async">
     </div>
   </figure>
 </section>
@@ -394,10 +393,7 @@
       <ul class="team-list" aria-label="Unser Team">
         <li>
           <span class="team-avatar">
-            <div class="img-placeholder ph-round">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/></svg>
-              <span class="ph-text">Hans Resch</span>
-            </div>
+            <img src="images/image52.jpeg" alt="Portrait Hans Resch" loading="lazy" decoding="async">
           </span>
           <div>
             <strong>Hans Resch</strong>
@@ -406,10 +402,7 @@
         </li>
         <li>
           <span class="team-avatar">
-            <div class="img-placeholder ph-round">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/></svg>
-              <span class="ph-text">Hans Schmid</span>
-            </div>
+            <img src="images/image53.jpeg" alt="Portrait Hans Schmid" loading="lazy" decoding="async">
           </span>
           <div>
             <strong>Hans Schmid</strong>
@@ -418,10 +411,7 @@
         </li>
         <li>
           <span class="team-avatar">
-            <div class="img-placeholder ph-round">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/></svg>
-              <span class="ph-text">Susi</span>
-            </div>
+            <img src="images/image65.jpeg" alt="Portrait Susi" loading="lazy" decoding="async">
           </span>
           <div>
             <strong>Susi</strong>
@@ -440,6 +430,34 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
         <span class="ph-label">Foto Über uns</span>
         <span class="ph-text">Innenansicht Laden mit Beratungssituation oder Außenansicht Schaufenster Laurentiusstraße 24</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROMINENTE GÄSTE ============ -->
+<section class="section" id="gaeste">
+  <div class="section-inner">
+    <div class="guest-card">
+      <div class="guest-image">
+        <img src="images/promi-gaeste.jpeg" alt="Hans Resch und Hans Schmid mit Biathletin Franziska Preuß und Biathlet Simon Schempp"
+             loading="lazy" decoding="async"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="img-placeholder" style="display:none;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+          <span class="ph-label">Foto Prominente Gäste</span>
+          <span class="ph-text">Bitte Datei <code>images/promi-gaeste.jpeg</code> hochladen — zeigt Schuhwiedu-Team mit Profisportlern</span>
+        </div>
+      </div>
+      <div class="guest-body">
+        <p class="eyebrow eyebrow-accent">
+          <span class="eyebrow-rule" aria-hidden="true"></span>
+          Prominente Gäste
+        </p>
+        <h2 class="section-title">Profis wissen, <em>wo echte Sportler einkaufen.</em></h2>
+        <p>
+          Biathletin <strong>Franziska Preuß</strong> und Biathlet <strong>Simon Schempp</strong> haben dem Schuhwiedu schon einen Besuch abgestattet. Solche Begegnungen sind für uns Anerkennung — und Bestätigung dafür, dass ehrliche Beratung auch im Profisport gefragt ist.
+        </p>
       </div>
     </div>
   </div>
@@ -617,7 +635,10 @@
 <footer class="site-footer">
   <div class="footer-inner">
     <div class="footer-brand">
-      <span class="logo-text">SCHUH<em>WIEDU</em></span>
+      <div class="footer-brand-row">
+        <img src="images/image1.jpeg" alt="" class="logo-mark" width="36" height="36">
+        <span class="logo-text">SCHUH<em>WIEDU</em></span>
+      </div>
       <p>Hans Resch &amp; Hans Schmid GbR<br>Laurentiusstr. 24 · 83080 Oberaudorf</p>
     </div>
     <div class="footer-links">
