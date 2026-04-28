@@ -38,7 +38,7 @@
   <link rel="stylesheet" href="fonts/fonts.css">
 
   <!-- ============ Hero-Bild preloaden (LCP-Optimierung) ============ -->
-  <link rel="preload" as="image" href="images/hero-laeufer.png" fetchpriority="high">
+  <link rel="preload" as="image" href="images/image48.jpeg" fetchpriority="high">
 
   <link rel="stylesheet" href="style.css">
 
@@ -170,11 +170,20 @@
       </a>
       <a href="#methode" class="btn btn-secondary">So läuft die Beratung ab</a>
     </div>
+
+    <a href="#bewertungen" class="hero-rating" aria-label="Zur Bewertungs-Sektion">
+      <span class="hero-rating-stars" aria-hidden="true">★★★★★</span>
+      <span class="hero-rating-text"><strong>5,0</strong> auf Google · echte Kundenbewertungen</span>
+    </a>
   </div>
 
   <figure class="hero-visual" aria-hidden="true">
     <div class="hero-image">
-      <img src="images/hero-laeufer.png" alt="" fetchpriority="high" decoding="async">
+      <img src="images/image48.jpeg" alt="" fetchpriority="high" decoding="async">
+      <span class="hero-image-tag">
+        <span class="hero-image-tag-dot" aria-hidden="true"></span>
+        Live im Laden
+      </span>
     </div>
   </figure>
 </section>
@@ -466,7 +475,7 @@
 <section class="section" id="gaeste">
   <div class="section-inner">
     <div class="guest-card">
-      <div class="guest-image">
+      <figure class="guest-image">
         <img src="images/promi-gaeste.jpeg" alt="Hans Resch und Hans Schmid mit Biathletin Franziska Preuß und Biathlet Simon Schempp"
              loading="lazy" decoding="async"
              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
@@ -475,7 +484,10 @@
           <span class="ph-label">Foto Prominente Gäste</span>
           <span class="ph-text">Bitte Datei <code>images/promi-gaeste.jpeg</code> hochladen — zeigt Schuhwiedu-Team mit Profisportlern</span>
         </div>
-      </div>
+        <figcaption class="guest-caption">
+          Mit <strong>Simon Schempp</strong> und <strong>Franziska Preuß</strong> — Schuhwiedu in Oberaudorf
+        </figcaption>
+      </figure>
       <div class="guest-body">
         <p class="eyebrow eyebrow-accent">
           <span class="eyebrow-rule" aria-hidden="true"></span>
@@ -497,8 +509,13 @@
       <p class="eyebrow">Bewertungen</p>
       <h2 class="section-title">Was unsere Kunden sagen.</h2>
       <p class="section-lead">
-        Echte Bewertungen — fünf von fünf Sternen auf Google.
+        Echte Bewertungen — von Menschen, die persönlich bei uns waren.
       </p>
+      <div class="rating-stats" aria-label="Google-Bewertung">
+        <span class="rating-score"><strong>5,0</strong>/5</span>
+        <span class="rating-stars" aria-hidden="true">★★★★★</span>
+        <span class="rating-meta">auf Google · verifizierte Bewertungen</span>
+      </div>
     </div>
 
     <blockquote class="review-card review-card-featured">

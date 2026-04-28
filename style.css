@@ -42,7 +42,7 @@
 
   /* Layout */
   --max-width: 1200px;
-  --header-h: 72px;
+  --header-h: 64px;
   --radius: 6px;
   --radius-lg: 12px;
   --radius-btn: 10px;
@@ -137,7 +137,7 @@ h1, h2, h3 {
   letter-spacing: -0.025em;
   line-height: 1.05;
 }
-.section-title    { font-size: clamp(2rem, 4.5vw, 3.25rem); margin-bottom: var(--space-4); }
+.section-title    { font-size: clamp(1.75rem, 3.5vw, 2.5rem); margin-bottom: var(--space-3); }
 
 h3 { font-size: 1.375rem; line-height: 1.3; margin-bottom: var(--space-3); font-weight: 600; }
 
@@ -320,10 +320,10 @@ h3 { font-size: 1.375rem; line-height: 1.3; margin-bottom: var(--space-3); font-
   position: absolute;
   bottom: 0; left: 0;
   width: 0; height: 1.5px;
-  background: var(--c-primary);
+  background: var(--c-accent);
   transition: width 0.25s var(--ease);
 }
-.nav-primary a:hover { color: var(--c-primary); }
+.nav-primary a:hover { color: var(--c-accent); }
 .nav-primary a:hover::after { width: 100%; }
 
 .header-actions {
@@ -474,18 +474,93 @@ h3 { font-size: 1.375rem; line-height: 1.3; margin-bottom: var(--space-3); font-
   aspect-ratio: 16 / 11;
 }
 .hero-image {
+  position: relative;
   width: 100%;
   height: 100%;
   border-radius: var(--radius-lg);
   overflow: hidden;
   background: var(--c-bg-alt);
   box-shadow: 0 16px 36px -20px rgba(30, 36, 22, 0.22);
+  isolation: isolate;
+}
+.hero-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 60%, rgba(30, 36, 22, 0.18) 100%);
+  z-index: 1;
+  pointer-events: none;
 }
 .hero-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 50% 60%;
+  object-position: 50% 50%;
+  filter: saturate(1.05) contrast(1.03);
+}
+.hero-image-tag {
+  position: absolute;
+  bottom: var(--space-3);
+  left: var(--space-3);
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: rgba(250, 248, 243, 0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--c-text);
+  box-shadow: 0 4px 10px rgba(30, 36, 22, 0.12);
+}
+.hero-image-tag-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--c-accent);
+  box-shadow: 0 0 0 3px rgba(199, 88, 37, 0.2);
+  animation: pulse-dot 2.4s ease-in-out infinite;
+}
+@keyframes pulse-dot {
+  0%, 100% { box-shadow: 0 0 0 3px rgba(199, 88, 37, 0.2); }
+  50% { box-shadow: 0 0 0 6px rgba(199, 88, 37, 0.08); }
+}
+
+/* Hero-Rating: Vertrauen-Element unter den Buttons */
+.hero-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+  padding: 8px 14px 8px 12px;
+  border-radius: 999px;
+  background: var(--c-bg);
+  border: 1px solid var(--c-line);
+  transition: border-color 0.2s var(--ease), transform 0.2s var(--ease);
+}
+.hero-rating:hover {
+  border-color: rgba(199, 88, 37, 0.4);
+  transform: translateY(-1px);
+}
+.hero-rating-stars {
+  color: var(--c-accent);
+  letter-spacing: 0.1em;
+  font-size: 0.95rem;
+  line-height: 1;
+}
+.hero-rating-text {
+  font-size: 0.82rem;
+  color: var(--c-text-muted);
+  font-weight: 500;
+}
+.hero-rating-text strong {
+  color: var(--c-text);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
 }
 .hero-visual .img-placeholder {
   border-radius: var(--radius-lg);
@@ -516,6 +591,42 @@ h3 { font-size: 1.375rem; line-height: 1.3; margin-bottom: var(--space-3); font-
 }
 .section-head .section-lead { margin-top: var(--space-3); }
 
+/* Rating-Stats: Sterne + Score + Quelle (z.B. unter Bewertungen-Headline) */
+.rating-stats {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+  padding: 8px 16px;
+  background: var(--c-bg);
+  border: 1px solid var(--c-line);
+  border-radius: 999px;
+}
+.section-alt .rating-stats { background: var(--c-bg); }
+.rating-score {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--c-text);
+  letter-spacing: -0.01em;
+}
+.rating-score strong {
+  font-size: 1.4rem;
+  color: var(--c-accent);
+  font-variant-numeric: tabular-nums;
+}
+.rating-stars {
+  color: var(--c-accent);
+  letter-spacing: 0.1em;
+  font-size: 1rem;
+  line-height: 1;
+}
+.rating-meta {
+  font-size: 0.78rem;
+  color: var(--c-text-muted);
+  font-weight: 500;
+}
+
 /* ============ METHODE — Linearer 4-Schritte-Flow ============ */
 .method-flow {
   display: grid;
@@ -532,7 +643,7 @@ h3 { font-size: 1.375rem; line-height: 1.3; margin-bottom: var(--space-3); font-
   transition: border-color 0.25s var(--ease), transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
 }
 .method-step:hover {
-  border-color: rgba(58, 92, 26, 0.35);
+  border-color: rgba(199, 88, 37, 0.4);
   transform: translateY(-3px);
   box-shadow: 0 18px 36px -18px rgba(30, 36, 22, 0.18);
 }
@@ -653,8 +764,8 @@ h3 { font-size: 1.375rem; line-height: 1.3; margin-bottom: var(--space-3); font-
 }
 .section-alt .brand-list li { background: var(--c-bg); }
 .brand-list li:hover {
-  border-color: rgba(58, 92, 26, 0.4);
-  color: var(--c-text);
+  border-color: rgba(199, 88, 37, 0.45);
+  color: var(--c-accent);
 }
 
 /* Susi-Callout: prominenter Sprechstunden-Hinweis im Bekleidungs-Tab */
@@ -1033,19 +1144,33 @@ h3 { font-size: 1.375rem; line-height: 1.3; margin-bottom: var(--space-3); font-
 }
 .guest-image {
   position: relative;
+  margin: 0;
+}
+.guest-image > img,
+.guest-image > .img-placeholder {
   aspect-ratio: 4 / 3;
+  width: 100%;
   border-radius: var(--radius-lg);
   overflow: hidden;
   background: var(--c-bg-alt);
 }
-.guest-image img,
-.guest-image .img-placeholder {
-  width: 100%;
-  height: 100%;
-}
-.guest-image img {
+.guest-image > img {
   object-fit: cover;
   display: block;
+  height: auto;
+}
+.guest-caption {
+  margin-top: var(--space-3);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--c-text-muted);
+  text-align: center;
+  line-height: 1.4;
+}
+.guest-caption strong {
+  color: var(--c-text);
+  font-weight: 600;
 }
 .guest-image .img-placeholder {
   border-radius: 0;
