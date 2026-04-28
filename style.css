@@ -133,9 +133,9 @@ h1, h2, h3 {
 }
 
 .hero-title {
-  font-size: clamp(2.75rem, 7.2vw, 5.75rem);
+  font-size: clamp(2.25rem, 5vw, 4rem);
   letter-spacing: -0.025em;
-  line-height: 1.02;
+  line-height: 1.05;
 }
 .section-title    { font-size: clamp(2rem, 4.5vw, 3.25rem); margin-bottom: var(--space-4); }
 
@@ -414,13 +414,13 @@ h3 { font-size: 1.375rem; line-height: 1.3; margin-bottom: var(--space-3); font-
 /* ============ HERO ============ */
 .hero {
   position: relative;
-  padding: calc(var(--header-h) + env(safe-area-inset-top, 0px) + var(--space-16)) var(--space-6) var(--space-20);
+  padding: calc(var(--header-h) + env(safe-area-inset-top, 0px) + var(--space-10)) var(--space-6) var(--space-12);
   max-width: var(--max-width);
   margin: 0 auto;
   display: grid;
   grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
   align-items: center;
-  gap: var(--space-16);
+  gap: var(--space-12);
 }
 .hero::before {
   content: '';
@@ -471,7 +471,7 @@ h3 { font-size: 1.375rem; line-height: 1.3; margin-bottom: var(--space-3); font-
   justify-self: end;
   width: 100%;
   max-width: 540px;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 16 / 11;
 }
 .hero-image {
   width: 100%;
@@ -494,7 +494,7 @@ h3 { font-size: 1.375rem; line-height: 1.3; margin-bottom: var(--space-3); font-
 
 /* ============ SECTIONS ============ */
 .section {
-  padding: var(--space-24) var(--space-6);
+  padding: var(--space-16) var(--space-6);
 }
 .section-alt { background: var(--c-bg-alt); }
 .section-dark {
@@ -512,9 +512,9 @@ h3 { font-size: 1.375rem; line-height: 1.3; margin-bottom: var(--space-3); font-
 }
 .section-head {
   max-width: 720px;
-  margin-bottom: var(--space-16);
+  margin-bottom: var(--space-10);
 }
-.section-head .section-lead { margin-top: var(--space-4); }
+.section-head .section-lead { margin-top: var(--space-3); }
 
 /* ============ METHODE — Linearer 4-Schritte-Flow ============ */
 .method-flow {
@@ -873,7 +873,7 @@ h3 { font-size: 1.375rem; line-height: 1.3; margin-bottom: var(--space-3); font-
 .section-dark .split-text > p { color: var(--c-text-light-muted); }
 .split-text .btn-ghost { margin-top: var(--space-6); }
 .split-visual {
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 16 / 10;
   border-radius: var(--radius-lg);
   overflow: hidden;
   background: var(--c-bg-alt);
