@@ -105,4 +105,58 @@
       setConsent('all');
     });
   }
+
+  // Scroll-Reveal: Intersection Observer für sanfte Sektion-Einblendungen
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const revealEls = document.querySelectorAll('.reveal, .reveal-stagger');
+
+  if (revealEls.length && 'IntersectionObserver' in window && !reduced) {
+    const revealObserver = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+
+    revealEls.forEach(el => revealObserver.observe(el));
+  } else {
+    // Fallback: alle direkt sichtbar
+    revealEls.forEach(el => el.classList.add('is-visible'));
+  }
+
+  // Number-Counting für [data-count] Elemente
+  const countEls = document.querySelectorAll('[data-count]');
+  if (countEls.length && 'IntersectionObserver' in window && !reduced) {
+    const animateCount = (el) => {
+      const target = parseFloat(el.dataset.count);
+      const decimals = (el.dataset.count.split('.')[1] || el.dataset.count.split(',')[1] || '').length;
+      const duration = 1400;
+      const start = performance.now();
+      const ease = (t) => 1 - Math.pow(1 - t, 3); // easeOutCubic
+
+      const tick = (now) => {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const value = target * ease(progress);
+        el.textContent = decimals > 0
+          ? value.toFixed(decimals).replace('.', ',')
+          : Math.round(value).toString();
+        if (progress < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    };
+
+    const countObserver = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCount(entry.target);
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    countEls.forEach(el => countObserver.observe(el));
+  }
 })();
