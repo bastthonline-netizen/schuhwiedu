@@ -1,0 +1,12 @@
+# SCHUHWIEDU Oberaudorf — robots.txt
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://schuhwiedu-oberaudorf.de/sitemap.xml
+
+# Block sensible Pfade
+Disallow: /.git/
+Disallow: /docx-extract/
+Disallow: /*.docx

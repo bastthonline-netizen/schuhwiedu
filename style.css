@@ -1743,6 +1743,54 @@ h3 { font-size: 1.375rem; line-height: 1.3; margin-bottom: var(--space-3); font-
   .cookie-actions .btn { width: 100%; }
 }
 
+/* ============ 404 SEITE ============ */
+.error-page {
+  min-height: calc(100vh - var(--header-h) - 200px);
+  padding: calc(var(--header-h) + env(safe-area-inset-top, 0px) + var(--space-16)) var(--space-6) var(--space-16);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.error-inner {
+  max-width: 600px;
+}
+.error-page .eyebrow-accent {
+  justify-content: center;
+}
+.error-code {
+  font-family: var(--font-serif);
+  font-size: clamp(6rem, 18vw, 11rem);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  color: var(--c-accent);
+  margin: var(--space-3) 0;
+  opacity: 0.85;
+}
+.error-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--c-text);
+  margin-bottom: var(--space-4);
+}
+.error-lead {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--c-text-muted);
+  margin: 0 auto var(--space-8);
+  max-width: 48ch;
+}
+.error-actions {
+  display: flex;
+  gap: var(--space-4);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
 /* ============ LEGAL PAGES (Impressum / Datenschutz) ============ */
 .legal-page {
   padding: calc(var(--header-h) + env(safe-area-inset-top, 0px) + var(--space-16)) var(--space-6) var(--space-24);
