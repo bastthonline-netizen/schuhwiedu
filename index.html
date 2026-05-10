@@ -40,9 +40,6 @@
   <!-- ============ Fonts (lokal gehostet, DSGVO-konform) ============ -->
   <link rel="stylesheet" href="fonts/fonts.css">
 
-  <!-- ============ Hero-Bild preloaden (LCP-Optimierung) ============ -->
-  <link rel="preload" as="image" href="images/hero-laeufer.webp" fetchpriority="high">
-
   <link rel="stylesheet" href="style.css">
 
   <!-- ============ Schema.org — LocalBusiness (Google Rich Results) ============ -->
@@ -185,23 +182,46 @@
 
 <main id="top">
 
-<!-- ============ HERO ============ -->
-<section class="hero hero-stacked">
-  <figure class="hero-banner" aria-hidden="true">
-    <img src="images/hero-laeufer.webp" alt="" fetchpriority="high" decoding="async">
-  </figure>
+<!-- ============ HERO (Typo-zentriert, animiertes Berg-Background) ============ -->
+<section class="hero hero-typo">
+  <!-- Animiertes Berg-Background -->
+  <svg class="hero-mountains" viewBox="0 0 1440 600" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+    <defs>
+      <linearGradient id="mtnFill1" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#3a5c1a" stop-opacity="0.05"/>
+        <stop offset="100%" stop-color="#3a5c1a" stop-opacity="0.18"/>
+      </linearGradient>
+      <linearGradient id="mtnFill2" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#1e2416" stop-opacity="0.06"/>
+        <stop offset="100%" stop-color="#1e2416" stop-opacity="0.22"/>
+      </linearGradient>
+    </defs>
+    <!-- Hintere Bergreihe (heller, langsamer) -->
+    <path class="mtn-back" d="M0,600 L0,380 L120,300 L240,360 L360,260 L480,340 L600,220 L720,310 L840,250 L960,320 L1080,200 L1200,290 L1320,240 L1440,310 L1440,600 Z"
+          fill="url(#mtnFill1)"/>
+    <!-- Vordere Bergreihe (dunkler, schneller Float) -->
+    <path class="mtn-front" d="M0,600 L0,460 L100,420 L220,470 L320,400 L450,460 L580,380 L700,440 L820,400 L940,470 L1060,410 L1180,460 L1300,420 L1440,470 L1440,600 Z"
+          fill="url(#mtnFill2)"/>
+    <!-- Trail-Linie (gestrichelt, dezent) -->
+    <path class="mtn-trail" d="M0,520 C 200,510, 400,530, 600,515 C 800,505, 1000,520, 1200,510 C 1300,505, 1400,515, 1440,510"
+          stroke="#3a5c1a" stroke-width="1.2" fill="none" stroke-dasharray="4 6" opacity="0.35"/>
+  </svg>
 
-  <div class="hero-content">
+  <!-- Akzent-Glow -->
+  <div class="hero-glow" aria-hidden="true"></div>
+
+  <div class="hero-content hero-content-center">
     <p class="eyebrow eyebrow-accent">
       <span class="eyebrow-rule" aria-hidden="true"></span>
       Analyse statt Zufall · seit 2004
     </p>
-    <h1 class="hero-title">
-      Lauf- und Bergschuhe<br>
-      <em>aus dem Inntal.</em>
+    <h1 class="hero-title hero-title-large">
+      Lauf- und Bergschuhe
+      <span class="hero-title-em">aus dem Inntal.</span>
     </h1>
     <p class="hero-lead">
-      Videoanalyse, Fußanalyse, Geländetest — direkt in Oberaudorf. Wir nehmen uns Zeit für deinen Schuh.
+      Videoanalyse, Fußanalyse, Geländetest — direkt in Oberaudorf.
+      Wir nehmen uns Zeit für deinen Schuh.
     </p>
     <div class="hero-actions">
       <a href="#besuch" class="btn btn-primary">
@@ -210,30 +230,101 @@
       </a>
       <a href="#methode" class="btn btn-secondary">So läuft die Beratung ab</a>
     </div>
+
+    <ul class="hero-trust" aria-label="Auf einen Blick">
+      <li>
+        <a href="#bewertungen" class="hero-trust-item">
+          <strong>★ 5,0</strong>
+          <span>Google-Bewertungen</span>
+        </a>
+      </li>
+      <li class="hero-trust-divider" aria-hidden="true"></li>
+      <li>
+        <span class="hero-trust-item">
+          <strong>20 Jahre</strong>
+          <span>persönliche Beratung</span>
+        </span>
+      </li>
+      <li class="hero-trust-divider" aria-hidden="true"></li>
+      <li>
+        <a href="#besuch" class="hero-trust-item">
+          <strong>Oberaudorf</strong>
+          <span>Laurentiusstraße 24</span>
+        </a>
+      </li>
+    </ul>
   </div>
 
-  <ul class="hero-trust" aria-label="Auf einen Blick">
-    <li>
-      <a href="#bewertungen" class="hero-trust-item">
-        <strong>★ 5,0</strong>
-        <span>Google-Bewertungen</span>
-      </a>
-    </li>
-    <li class="hero-trust-divider" aria-hidden="true"></li>
-    <li>
-      <span class="hero-trust-item">
-        <strong>20 Jahre</strong>
-        <span>persönliche Beratung</span>
-      </span>
-    </li>
-    <li class="hero-trust-divider" aria-hidden="true"></li>
-    <li>
-      <a href="#besuch" class="hero-trust-item">
-        <strong>Oberaudorf</strong>
-        <span>Laurentiusstraße 24</span>
-      </a>
-    </li>
-  </ul>
+  <!-- Marken-Marquee (modern, dezent laufend) -->
+  <div class="hero-marquee" aria-hidden="true">
+    <div class="hero-marquee-track">
+      <span class="marquee-item">Asics</span>
+      <span class="marquee-dot">·</span>
+      <span class="marquee-item">Hoka</span>
+      <span class="marquee-dot">·</span>
+      <span class="marquee-item">Brooks</span>
+      <span class="marquee-dot">·</span>
+      <span class="marquee-item">Saucony</span>
+      <span class="marquee-dot">·</span>
+      <span class="marquee-item">Karhu</span>
+      <span class="marquee-dot">·</span>
+      <span class="marquee-item">Diadora</span>
+      <span class="marquee-dot">·</span>
+      <span class="marquee-item">New Balance</span>
+      <span class="marquee-dot">·</span>
+      <span class="marquee-item">Mizuno</span>
+      <span class="marquee-dot">·</span>
+      <span class="marquee-item">Lowa</span>
+      <span class="marquee-dot">·</span>
+      <span class="marquee-item">Meindl</span>
+      <span class="marquee-dot">·</span>
+      <span class="marquee-item">Scarpa</span>
+      <span class="marquee-dot">·</span>
+      <span class="marquee-item">Hanwag</span>
+      <span class="marquee-dot">·</span>
+      <span class="marquee-item">Petzl</span>
+      <span class="marquee-dot">·</span>
+      <span class="marquee-item">Anita Active</span>
+      <span class="marquee-dot">·</span>
+      <span class="marquee-item">Devold</span>
+      <span class="marquee-dot">·</span>
+      <span class="marquee-item">Aclima</span>
+      <span class="marquee-dot">·</span>
+      <!-- Duplikat für nahtlose Schleife -->
+      <span class="marquee-item">Asics</span>
+      <span class="marquee-dot">·</span>
+      <span class="marquee-item">Hoka</span>
+      <span class="marquee-dot">·</span>
+      <span class="marquee-item">Brooks</span>
+      <span class="marquee-dot">·</span>
+      <span class="marquee-item">Saucony</span>
+      <span class="marquee-dot">·</span>
+      <span class="marquee-item">Karhu</span>
+      <span class="marquee-dot">·</span>
+      <span class="marquee-item">Diadora</span>
+      <span class="marquee-dot">·</span>
+      <span class="marquee-item">New Balance</span>
+      <span class="marquee-dot">·</span>
+      <span class="marquee-item">Mizuno</span>
+      <span class="marquee-dot">·</span>
+      <span class="marquee-item">Lowa</span>
+      <span class="marquee-dot">·</span>
+      <span class="marquee-item">Meindl</span>
+      <span class="marquee-dot">·</span>
+      <span class="marquee-item">Scarpa</span>
+      <span class="marquee-dot">·</span>
+      <span class="marquee-item">Hanwag</span>
+      <span class="marquee-dot">·</span>
+      <span class="marquee-item">Petzl</span>
+      <span class="marquee-dot">·</span>
+      <span class="marquee-item">Anita Active</span>
+      <span class="marquee-dot">·</span>
+      <span class="marquee-item">Devold</span>
+      <span class="marquee-dot">·</span>
+      <span class="marquee-item">Aclima</span>
+      <span class="marquee-dot">·</span>
+    </div>
+  </div>
 </section>
 
 <!-- ============ INNTAL-STORY-BANNER ============ -->
