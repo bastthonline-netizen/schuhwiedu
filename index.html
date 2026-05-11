@@ -186,9 +186,7 @@
 <main id="top">
 
 <div class="hero-section-wrap">
-<!-- ============ HERO ============ -->
-<section class="hero hero-typo">
-  <!-- Berg-Silhouette als Hero-Background -->
+  <!-- Berg-Silhouette als full-width Background im Wrap -->
   <svg class="hero-mountains" viewBox="0 0 1440 600" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
     <defs>
       <linearGradient id="heroMtnFill1" x1="0" y1="0" x2="0" y2="1">
@@ -200,17 +198,16 @@
         <stop offset="100%" stop-color="#1e2416" stop-opacity="0.24"/>
       </linearGradient>
     </defs>
-    <!-- Hintere Bergreihe (heller) -->
     <path class="mtn-back" d="M0,600 L0,360 L130,280 L250,340 L370,250 L500,320 L620,210 L750,295 L880,240 L1000,310 L1120,200 L1240,280 L1360,230 L1440,300 L1440,600 Z"
           fill="url(#heroMtnFill1)"/>
-    <!-- Vordere Bergreihe (dunkler) -->
     <path class="mtn-front" d="M0,600 L0,460 L100,420 L220,470 L320,400 L450,460 L580,380 L700,440 L820,400 L940,470 L1060,410 L1180,460 L1300,420 L1440,470 L1440,600 Z"
           fill="url(#heroMtnFill2)"/>
-    <!-- Gestrichelte Trail-Linie -->
     <path class="mtn-trail" d="M0,520 C 200,510 400,530 600,515 C 800,505 1000,520 1200,510 C 1300,505 1400,515 1440,510"
           stroke="#3a5c1a" stroke-width="1.2" fill="none" stroke-dasharray="4 6" opacity="0.35"/>
   </svg>
 
+<!-- ============ HERO ============ -->
+<section class="hero hero-typo">
   <!-- Akzent-Glow -->
   <div class="hero-glow" aria-hidden="true"></div>
 
@@ -269,8 +266,10 @@
     </li>
   </ul>
 
-  <!-- Marken-Marquee (modern, dezent laufend) -->
-  <div class="hero-marquee hero-marquee-edge" aria-hidden="true">
+  </section>
+
+  <!-- Marken-Marquee (full-width im Wrap) -->
+  <div class="hero-marquee" aria-hidden="true">
     <div class="hero-marquee-track">
       <span class="marquee-item">Asics</span>
       <span class="marquee-dot">·</span>
@@ -339,7 +338,6 @@
       <span class="marquee-dot">·</span>
     </div>
   </div>
-</section>
 </div>
 <!-- /hero-section-wrap -->
 
