@@ -37,6 +37,9 @@
   <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 
+  <!-- ============ Hero-Bild preloaden (LCP-Optimierung) ============ -->
+  <link rel="preload" as="image" href="images/image2.jpeg" fetchpriority="high">
+
   <!-- ============ Fonts (lokal gehostet, DSGVO-konform) ============ -->
   <link rel="stylesheet" href="fonts/fonts.css">
 
@@ -214,50 +217,64 @@
   <!-- Akzent-Glow -->
   <div class="hero-glow" aria-hidden="true"></div>
 
-  <div class="hero-content hero-content-center">
-    <p class="eyebrow eyebrow-accent">
-      <span class="eyebrow-rule" aria-hidden="true"></span>
-      Analyse statt Zufall · seit 2004
-    </p>
-    <h1 class="hero-title hero-title-large">
-      Lauf- und Bergschuhe
-      <span class="hero-title-em">aus dem Inntal.</span>
-    </h1>
-    <p class="hero-lead">
-      Videoanalyse, Fußanalyse, Geländetest — direkt in Oberaudorf.
-      Wir nehmen uns Zeit für deinen Schuh.
-    </p>
-    <div class="hero-actions">
-      <a href="#besuch" class="btn btn-primary">
-        Beratungstermin vereinbaren
-        <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </a>
-      <a href="#methode" class="btn btn-secondary">So läuft die Beratung ab</a>
+  <div class="hero-grid">
+    <div class="hero-content">
+      <p class="eyebrow eyebrow-accent">
+        <span class="eyebrow-rule" aria-hidden="true"></span>
+        Analyse statt Zufall · seit 2004
+      </p>
+      <h1 class="hero-title hero-title-large">
+        Lauf- und Bergschuhe
+        <span class="hero-title-em">aus dem Inntal.</span>
+      </h1>
+      <blockquote class="hero-quote">
+        <span class="hero-quote-mark" aria-hidden="true">„</span>
+        Wir kennen jeden Trail im Inntal — <em>weil wir ihn selbst laufen.</em>
+      </blockquote>
+      <p class="hero-lead">
+        Videoanalyse, Fußanalyse, Geländetest — direkt in Oberaudorf.
+        Wir nehmen uns Zeit für deinen Schuh.
+      </p>
+      <div class="hero-actions">
+        <a href="#besuch" class="btn btn-primary">
+          Beratungstermin vereinbaren
+          <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a href="#methode" class="btn btn-secondary">So läuft die Beratung ab</a>
+      </div>
     </div>
 
-    <ul class="hero-trust" aria-label="Auf einen Blick">
-      <li>
-        <a href="#bewertungen" class="hero-trust-item">
-          <strong>★ 5,0</strong>
-          <span>Google-Bewertungen</span>
-        </a>
-      </li>
-      <li class="hero-trust-divider" aria-hidden="true"></li>
-      <li>
-        <span class="hero-trust-item">
-          <strong>20 Jahre</strong>
-          <span>persönliche Beratung</span>
-        </span>
-      </li>
-      <li class="hero-trust-divider" aria-hidden="true"></li>
-      <li>
-        <a href="#besuch" class="hero-trust-item">
-          <strong>Oberaudorf</strong>
-          <span>Laurentiusstraße 24</span>
-        </a>
-      </li>
-    </ul>
+    <figure class="hero-portrait" aria-hidden="true">
+      <img src="images/image2.jpeg" alt="" fetchpriority="high" decoding="async">
+      <figcaption class="hero-portrait-caption">
+        <span class="hero-portrait-dot" aria-hidden="true"></span>
+        Schuhwiedu-Team · Inntal
+      </figcaption>
+    </figure>
   </div>
+
+  <ul class="hero-trust" aria-label="Auf einen Blick">
+    <li>
+      <a href="#bewertungen" class="hero-trust-item">
+        <strong>★ 5,0</strong>
+        <span>Google-Bewertungen</span>
+      </a>
+    </li>
+    <li class="hero-trust-divider" aria-hidden="true"></li>
+    <li>
+      <span class="hero-trust-item">
+        <strong>20 Jahre</strong>
+        <span>persönliche Beratung</span>
+      </span>
+    </li>
+    <li class="hero-trust-divider" aria-hidden="true"></li>
+    <li>
+      <a href="#besuch" class="hero-trust-item">
+        <strong>Oberaudorf</strong>
+        <span>Laurentiusstraße 24</span>
+      </a>
+    </li>
+  </ul>
 
   <!-- Marken-Marquee (modern, dezent laufend) -->
   <div class="hero-marquee" aria-hidden="true">
@@ -328,29 +345,6 @@
       <span class="marquee-item">Aclima</span>
       <span class="marquee-dot">·</span>
     </div>
-  </div>
-</section>
-
-<!-- ============ INNTAL-STORY-BANNER ============ -->
-<section class="inntal-banner reveal" aria-label="Verwurzelt im Inntal">
-  <svg class="inntal-mountains" viewBox="0 0 1200 100" preserveAspectRatio="none" aria-hidden="true">
-    <path d="M0,100 L0,75 L120,40 L210,65 L320,25 L430,55 L540,15 L650,50 L760,30 L870,60 L980,20 L1080,55 L1200,35 L1200,100 Z"
-          fill="currentColor" fill-opacity="0.08"/>
-    <path d="M0,100 L0,80 L120,50 L210,70 L320,35 L430,62 L540,25 L650,58 L760,40 L870,68 L980,30 L1080,62 L1200,45"
-          stroke="currentColor" stroke-width="1" fill="none" opacity="0.4"/>
-  </svg>
-  <div class="inntal-banner-inner">
-    <p class="eyebrow eyebrow-accent">
-      <span class="eyebrow-rule" aria-hidden="true"></span>
-      Verwurzelt im Inntal
-    </p>
-    <p class="inntal-quote">
-      „Wir kennen jeden Trail im Inntal — <em>weil wir ihn selbst laufen.</em>"
-    </p>
-    <p class="inntal-meta">
-      Beratung von Sportlern, die in derselben Landschaft trainieren wie du.
-      Vom Kranzhorn bis zum Wendelstein, von der Auerbach-Loipe bis zur Rampoldplatte.
-    </p>
   </div>
 </section>
 
