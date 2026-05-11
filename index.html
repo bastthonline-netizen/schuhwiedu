@@ -182,29 +182,33 @@
 
 <main id="top">
 
-<!-- ============ HERO (Typo-zentriert, animiertes Berg-Background) ============ -->
+<!-- ============ HERO (Typo-zentriert mit Topo-Linien-Background) ============ -->
 <section class="hero hero-typo">
-  <!-- Animiertes Berg-Background -->
-  <svg class="hero-mountains" viewBox="0 0 1440 600" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
-    <defs>
-      <linearGradient id="mtnFill1" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="#3a5c1a" stop-opacity="0.05"/>
-        <stop offset="100%" stop-color="#3a5c1a" stop-opacity="0.18"/>
-      </linearGradient>
-      <linearGradient id="mtnFill2" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="#1e2416" stop-opacity="0.06"/>
-        <stop offset="100%" stop-color="#1e2416" stop-opacity="0.22"/>
-      </linearGradient>
-    </defs>
-    <!-- Hintere Bergreihe (heller, langsamer) -->
-    <path class="mtn-back" d="M0,600 L0,380 L120,300 L240,360 L360,260 L480,340 L600,220 L720,310 L840,250 L960,320 L1080,200 L1200,290 L1320,240 L1440,310 L1440,600 Z"
-          fill="url(#mtnFill1)"/>
-    <!-- Vordere Bergreihe (dunkler, schneller Float) -->
-    <path class="mtn-front" d="M0,600 L0,460 L100,420 L220,470 L320,400 L450,460 L580,380 L700,440 L820,400 L940,470 L1060,410 L1180,460 L1300,420 L1440,470 L1440,600 Z"
-          fill="url(#mtnFill2)"/>
-    <!-- Trail-Linie (gestrichelt, dezent) -->
-    <path class="mtn-trail" d="M0,520 C 200,510, 400,530, 600,515 C 800,505, 1000,520, 1200,510 C 1300,505, 1400,515, 1440,510"
-          stroke="#3a5c1a" stroke-width="1.2" fill="none" stroke-dasharray="4 6" opacity="0.35"/>
+  <!-- Topografische Höhenlinien als Background (Karten-Pattern) -->
+  <svg class="hero-topo" viewBox="0 0 1440 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <g class="topo-layer topo-layer-1" stroke="#3a5c1a" stroke-width="1" fill="none" stroke-linecap="round">
+      <!-- Höhenlinie 1 — äußere Kontur -->
+      <path d="M -50,180 C 180,160 360,200 540,170 C 720,140 900,200 1080,180 C 1260,160 1380,200 1490,180" opacity="0.18"/>
+      <!-- Höhenlinie 2 -->
+      <path d="M -50,240 C 200,220 380,260 580,240 C 760,225 940,255 1140,235 C 1280,225 1380,250 1490,240" opacity="0.22"/>
+      <!-- Höhenlinie 3 — geschlossener Kreis (Gipfel) -->
+      <path d="M 280,300 C 360,280 480,290 540,310 C 580,330 560,360 480,365 C 380,365 280,340 280,300 Z" opacity="0.25"/>
+      <!-- Höhenlinie 4 -->
+      <path d="M -50,360 C 220,340 420,380 620,355 C 820,340 1020,380 1220,360 C 1340,348 1430,365 1490,358" opacity="0.20"/>
+      <!-- Höhenlinie 5 — innerer Gipfel -->
+      <path d="M 340,310 C 400,300 460,310 490,330 C 510,350 470,360 410,355 C 360,350 330,335 340,310 Z" opacity="0.30"/>
+      <!-- Höhenlinie 6 -->
+      <path d="M -50,420 C 240,400 440,440 660,415 C 880,400 1080,440 1280,418 C 1380,408 1430,425 1490,418" opacity="0.18"/>
+      <!-- Zweiter Gipfel weiter rechts -->
+      <path d="M 920,280 C 990,270 1070,275 1110,295 C 1150,315 1130,345 1060,348 C 980,350 910,330 920,280 Z" opacity="0.22"/>
+      <path d="M 970,300 C 1020,295 1070,300 1090,315 C 1100,330 1075,340 1030,338 C 990,335 960,325 970,300 Z" opacity="0.28"/>
+      <!-- Höhenlinie 7 — unterste -->
+      <path d="M -50,480 C 260,460 460,500 680,475 C 900,460 1100,500 1300,478 C 1390,470 1440,485 1490,478" opacity="0.16"/>
+    </g>
+    <g class="topo-layer topo-layer-2" stroke="#3a5c1a" stroke-width="0.8" fill="none" stroke-linecap="round" stroke-dasharray="3 5">
+      <!-- Pfad-Linie (gestrichelt) — wie ein Wanderpfad auf der Karte -->
+      <path d="M 60,520 C 200,510 350,490 480,500 C 600,510 720,540 880,520 C 1020,505 1180,525 1340,515" opacity="0.35"/>
+    </g>
   </svg>
 
   <!-- Akzent-Glow -->
