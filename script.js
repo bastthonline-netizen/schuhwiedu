@@ -106,6 +106,23 @@
     });
   }
 
+  // Click-to-Load YouTube-Videos (datensparsam — lädt erst beim Klick)
+  document.querySelectorAll('.video-facade').forEach((facade) => {
+    facade.addEventListener('click', () => {
+      const id = facade.dataset.yt;
+      if (!id) return;
+      const wrap = document.createElement('div');
+      wrap.className = 'video-embed';
+      const iframe = document.createElement('iframe');
+      iframe.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`;
+      iframe.title = facade.getAttribute('aria-label') || 'Video';
+      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      iframe.allowFullscreen = true;
+      wrap.appendChild(iframe);
+      facade.replaceWith(wrap);
+    });
+  });
+
   // Scroll-Reveal: Intersection Observer für sanfte Sektion-Einblendungen
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const revealEls = document.querySelectorAll('.reveal, .reveal-stagger');

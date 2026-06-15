@@ -933,62 +933,170 @@ a.hero-trust-item:hover strong { color: var(--c-accent); }
 }
 .section-head .section-lead { margin-top: var(--space-3); }
 
-/* Rating-Stats: Klickbarer Google-Bewertungs-Pill */
-.rating-stats {
+/* Bewertungen — Trust-Band mit Kennzahlen */
+#bewertungen .section-head { text-align: center; margin-inline: auto; }
+.reviews-band {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+}
+.reviews-stat {
+  flex: 1 1 160px;
+  max-width: 240px;
+  text-align: center;
+  padding: var(--space-6) var(--space-4);
+}
+.reviews-stat + .reviews-stat { border-left: 1px solid var(--c-line); }
+.reviews-stat-num {
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 4vw, 2.4rem);
+  color: var(--c-text);
   display: inline-flex;
   align-items: center;
-  gap: var(--space-3);
-  margin-top: var(--space-5);
-  padding: 8px 14px 8px 12px;
-  background: var(--c-bg);
-  border: 1px solid var(--c-line);
-  border-radius: 999px;
-  text-decoration: none;
-  transition: border-color 0.2s var(--ease), transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
-}
-.rating-stats:hover {
-  border-color: rgba(199, 88, 37, 0.45);
-  transform: translateY(-1px);
-  box-shadow: 0 6px 16px -8px rgba(30, 36, 22, 0.15);
-}
-.section-alt .rating-stats { background: var(--c-bg); }
-.rating-google {
-  width: 18px;
-  height: 18px;
-  flex-shrink: 0;
-}
-.rating-arrow {
-  color: var(--c-text-muted);
-  font-size: 1rem;
-  margin-left: 2px;
-  transition: transform 0.2s var(--ease), color 0.2s var(--ease);
-}
-.rating-stats:hover .rating-arrow {
-  color: var(--c-accent);
-  transform: translateX(3px);
-}
-.rating-score {
-  font-family: var(--font-serif);
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: var(--c-text);
-  letter-spacing: -0.01em;
-}
-.rating-score strong {
-  font-size: 1.4rem;
-  color: var(--c-accent);
+  gap: 0.4rem;
+  line-height: 1;
   font-variant-numeric: tabular-nums;
 }
-.rating-stars {
-  color: var(--c-accent);
-  letter-spacing: 0.1em;
-  font-size: 1rem;
-  line-height: 1;
+.reviews-g {
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
 }
-.rating-meta {
-  font-size: 0.78rem;
+.reviews-stat-label {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
   color: var(--c-text-muted);
-  font-weight: 500;
+  margin-top: var(--space-2);
+}
+.reviews-cta { text-align: center; }
+.reviews-cta-note {
+  margin-top: var(--space-5);
+  font-size: 0.9rem;
+  color: var(--c-text-muted);
+  max-width: 460px;
+  margin-inline: auto;
+}
+@media (max-width: 620px) {
+  .reviews-band { flex-direction: column; align-items: center; }
+  .reviews-stat { padding: var(--space-4); max-width: 280px; width: 100%; }
+  .reviews-stat + .reviews-stat {
+    border-left: none;
+    border-top: 1px solid var(--c-line);
+  }
+}
+
+/* ============ VIDEO-EMBEDS (Klick zum Laden) ============ */
+.video-facade {
+  position: relative; display: block; width: 100%;
+  aspect-ratio: 16 / 10; border: 1px solid var(--c-line); border-radius: var(--radius-lg);
+  overflow: hidden; cursor: pointer; padding: 0; background: #000;
+  background-image: var(--thumb); background-size: cover; background-position: center;
+}
+.video-facade::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.10) 0%, rgba(0,0,0,0.55) 100%);
+  transition: background 0.25s var(--ease);
+}
+.video-facade:hover::after { background: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.5) 100%); }
+.video-facade-play {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 64px; height: 64px; border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92); color: var(--c-primary);
+  display: grid; place-items: center; z-index: 2;
+  transition: transform 0.2s var(--ease), background 0.2s var(--ease);
+}
+.video-facade-play svg { width: 26px; height: 26px; margin-left: 3px; }
+.video-facade:hover .video-facade-play { transform: translate(-50%, -50%) scale(1.08); background: #fff; }
+.video-facade:focus-visible { outline: 2px solid var(--c-primary); outline-offset: 3px; }
+.video-facade-label {
+  position: absolute; left: 0; right: 0; bottom: 0; z-index: 2;
+  padding: var(--space-4) var(--space-5);
+  font-family: var(--font-sans); font-weight: 600; font-size: 0.95rem;
+  color: #fff; text-align: left;
+}
+.video-embed { aspect-ratio: 16 / 10; border-radius: var(--radius-lg); overflow: hidden; background: #000; }
+.video-embed iframe { width: 100%; height: 100%; border: 0; display: block; }
+.video-consent-note {
+  margin-top: var(--space-3); font-size: 0.8rem; color: var(--c-text-muted); text-align: center;
+}
+.video-consent-note a { color: var(--c-primary); text-decoration: underline; text-underline-offset: 2px; }
+.video-consent-note--light { color: var(--c-text-light-muted); }
+.video-consent-note--light a { color: var(--c-gold); }
+
+/* Methode → Beratungs-Videos */
+.method-videos { margin-top: var(--space-12); }
+.method-videos-title {
+  font-family: var(--font-serif); font-size: 1.3rem; text-align: center;
+  margin-bottom: var(--space-6); color: var(--c-text);
+}
+.video-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-6); }
+@media (max-width: 720px) { .video-row { grid-template-columns: 1fr; } }
+
+/* Sortiment — Saison-/Verfügbarkeits-Hinweis pro Panel */
+.panel-note {
+  margin-top: var(--space-8);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--c-text-muted);
+  max-width: 640px;
+}
+
+/* Gutscheine — Feature-Bild */
+#panel-gutscheine { text-align: center; }
+#panel-gutscheine .panel-lead,
+#panel-gutscheine .panel-note { max-width: 620px; margin-inline: auto; }
+.gutschein-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+  max-width: 860px;
+  margin: var(--space-6) auto;
+  align-items: start;
+}
+.gutschein-feature {
+  margin: 0;
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: #fff;
+}
+.gutschein-feature img { width: 100%; height: auto; display: block; }
+@media (max-width: 620px) { .gutschein-grid { grid-template-columns: 1fr; max-width: 460px; } }
+
+/* Sport-BH — Beratungstext (Susi) */
+.sportbh-text {
+  max-width: 720px;
+  margin: var(--space-10) auto 0;
+}
+.sportbh-text h3 {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  color: var(--c-text);
+  margin-bottom: var(--space-5);
+}
+.sportbh-text p {
+  color: var(--c-text-muted);
+  line-height: 1.7;
+  margin-bottom: var(--space-4);
+}
+.sportbh-signoff {
+  margin-top: var(--space-6);
+  color: var(--c-text);
+}
+
+/* Besuch uns → Einblick-/Anfahrt-Video als Streifen unter der Sektion */
+.visit-strip { max-width: 920px; margin: 0 auto var(--space-16); text-align: center; }
+.visit-strip .video-facade, .visit-strip .video-embed { aspect-ratio: 16 / 9; }
+.visit-strip h3 {
+  font-family: var(--font-serif); font-size: 1.4rem;
+  color: var(--c-text-light); margin-bottom: var(--space-2);
+}
+.visit-strip .lead {
+  font-family: var(--font-sans); color: var(--c-text-light-muted);
+  margin-bottom: var(--space-6);
 }
 
 /* ============ METHODE — Linearer 4-Schritte-Flow ============ */
