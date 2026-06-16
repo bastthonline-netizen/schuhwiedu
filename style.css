@@ -2484,25 +2484,12 @@ a.hero-trust-item:hover strong { color: var(--c-accent); }
     flex: 0 0 var(--space-2);
   }
 
-  /* Sortiment-Grid: horizontal scrollen statt nach unten stapeln */
+  /* Sortiment-Grid: zwei Bilder nebeneinander (statt horizontal scrollen) */
   .product-grid {
-    display: flex;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: var(--space-3);
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    margin-left: calc(var(--space-4) * -1);
-    margin-right: calc(var(--space-4) * -1);
-    padding: var(--space-2) var(--space-4) var(--space-4);
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
   }
-  .product-grid::-webkit-scrollbar { display: none; }
-  .product-card {
-    flex: 0 0 78%;
-    max-width: 300px;
-    scroll-snap-align: start;
-    padding: var(--space-4);
-  }
+  .product-card { padding: var(--space-4); }
 
   /* Reviews: 3 kleine horizontal scrollen, Featured bleibt oben */
   .reviews-row {
@@ -2524,7 +2511,6 @@ a.hero-trust-item:hover strong { color: var(--c-accent); }
   }
 
   /* Sanfter Hinweis: Scroll-Indikator unter scrollbaren Reihen */
-  .product-grid::after,
   .reviews-row::after {
     content: '';
     flex: 0 0 var(--space-2);
