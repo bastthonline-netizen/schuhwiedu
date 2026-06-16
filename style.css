@@ -1050,7 +1050,7 @@ a.hero-trust-item:hover strong { color: var(--c-accent); }
   grid-template-columns: 1fr 1fr;
   gap: var(--space-12);
 }
-@media (max-width: 768px) {
+@media (max-width: 560px) {
   .bekleidung-cols { grid-template-columns: 1fr; gap: var(--space-8); }
 }
 .bekleidung-col h3 {
