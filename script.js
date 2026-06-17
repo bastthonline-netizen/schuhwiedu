@@ -100,9 +100,10 @@
   if (acceptBtn) acceptBtn.addEventListener('click', () => setConsent('all'));
   if (declineBtn) declineBtn.addEventListener('click', () => setConsent('necessary'));
 
+  // Karte nur für diese Sitzung laden (kein pauschales Voll-Consent) — DSGVO-konform
   if (mapLoadBtn) {
     mapLoadBtn.addEventListener('click', () => {
-      setConsent('all');
+      loadMap();
     });
   }
 
