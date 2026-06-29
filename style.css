@@ -1295,6 +1295,43 @@ a.hero-trust-item:hover strong { color: var(--c-accent); }
   gap: var(--space-5);
 }
 
+/* Über uns — Hinweise zum Schuhkauf */
+.kauf-hinweis {
+  margin: 0 0 var(--space-8);
+  padding: var(--space-6);
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius-lg);
+  background: var(--c-bg);
+}
+.kauf-hinweis h3 {
+  margin: 0 0 var(--space-5);
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  color: var(--c-primary);
+}
+.kauf-hinweis ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-3);
+}
+.kauf-hinweis li {
+  position: relative;
+  padding-left: var(--space-6);
+  font-size: 0.98rem;
+  line-height: 1.55;
+  color: var(--c-text);
+}
+.kauf-hinweis li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--c-primary);
+  font-weight: 700;
+}
+
 /* Blur-Trick: größere Darstellung + feiner Creme-Ring, subtile Filter für kleine Quellen */
 .team-avatar {
   position: relative;
