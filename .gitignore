@@ -23,3 +23,10 @@ docx-extract/
 
 # Lokale Übersicht / Klartext-Plan (kann nach Bedarf raus)
 # PLAN.md
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
