@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Variante D · Heimat Modern · SCHUHWIEDU</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;0,600;0,700;1,400&family=Mulish:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#faf6ef; --wood:#4a3528; --green:#3a5a40; --gold:#b58a4c;
+    --ink:#34302a; --muted:#7a7268; --line:#e6ddcf;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Mulish',sans-serif;background:var(--cream);color:var(--ink);line-height:1.65}
+  .ribbon{background:var(--wood);color:var(--cream);text-align:center;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;padding:.45rem}
+  header{position:sticky;top:0;z-index:50;background:rgba(250,246,239,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  nav{max-width:1160px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 2rem}
+  .logo{font-family:'Bitter',serif;font-weight:700;font-size:1.3rem;color:var(--wood)}
+  .logo small{display:block;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);font-family:'Mulish';font-weight:600}
+  .navlinks{display:flex;gap:2rem;font-size:.9rem;font-weight:500}
+  .navlinks a{color:var(--ink);text-decoration:none;opacity:.85}
+  .navlinks a:hover{color:var(--green)}
+  .btn{font-weight:700;font-size:.88rem;padding:.7rem 1.5rem;border-radius:6px;border:none;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:.4rem;transition:.2s}
+  .btn-primary{background:var(--green);color:var(--cream)}
+  .btn-primary:hover{background:var(--wood);transform:translateY(-2px)}
+  .btn-outline{background:transparent;color:var(--wood);border:1.5px solid var(--gold)}
+  .btn-outline:hover{background:var(--gold);color:#fff;border-color:var(--gold)}
+  /* HERO */
+  .hero{max-width:1160px;margin:0 auto;padding:5rem 2rem;display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:center}
+  .badge{display:inline-flex;align-items:center;gap:.5rem;background:#fff;border:1px solid var(--line);border-radius:100px;padding:.45rem 1rem;font-size:.8rem;font-weight:600;color:var(--gold);margin-bottom:1.6rem}
+  .hero h1{font-family:'Bitter',serif;font-weight:700;font-size:clamp(2.4rem,4.5vw,3.8rem);line-height:1.1;color:var(--wood);margin-bottom:1.3rem}
+  .hero h1 em{color:var(--green);font-style:italic}
+  .hero p{font-size:1.1rem;color:var(--muted);max-width:34ch;margin-bottom:2rem}
+  .hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
+  .ph{background:linear-gradient(160deg,#e8ddcb,#d8c8b0);border-radius:14px;display:flex;align-items:center;justify-content:center;color:#9c8d75;font-style:italic;font-size:.85rem}
+  .hero-img{aspect-ratio:4/5;box-shadow:0 24px 50px rgba(74,53,40,.18)}
+  /* Werte / trust */
+  .values{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .values-inner{max-width:1160px;margin:0 auto;padding:3rem 2rem;display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem}
+  .value{text-align:center}
+  .value .ic{font-size:1.8rem;margin-bottom:.6rem}
+  .value h3{font-family:'Bitter',serif;font-size:1.15rem;color:var(--wood);margin-bottom:.3rem}
+  .value p{font-size:.9rem;color:var(--muted)}
+  /* Methode */
+  section.block{max-width:1160px;margin:0 auto;padding:6rem 2rem}
+  .label{font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:1rem}
+  .h2{font-family:'Bitter',serif;font-weight:700;font-size:clamp(2rem,4vw,3rem);color:var(--wood);line-height:1.12;margin-bottom:1rem}
+  .sub{color:var(--muted);max-width:54ch;margin-bottom:3rem;font-size:1.05rem}
+  .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+  .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:1.8rem;transition:.25s}
+  .card:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(74,53,40,.1)}
+  .card .step{font-family:'Bitter',serif;font-size:1.8rem;color:var(--gold);font-weight:700}
+  .card h4{font-family:'Bitter',serif;font-size:1.1rem;color:var(--wood);margin:.5rem 0 .4rem}
+  .card p{font-size:.88rem;color:var(--muted)}
+  /* Story / Jubiläum */
+  .story{background:var(--wood);color:var(--cream)}
+  .story-inner{max-width:1160px;margin:0 auto;padding:6rem 2rem;display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:center}
+  .story .ph{aspect-ratio:1/1}
+  .story h2{font-family:'Bitter',serif;font-size:clamp(2rem,4vw,2.8rem);margin-bottom:1.2rem;line-height:1.15}
+  .story h2 em{color:var(--gold);font-style:italic}
+  .story p{opacity:.85;margin-bottom:1rem}
+  /* CTA */
+  .cta{text-align:center;padding:6rem 2rem;background:var(--green);color:var(--cream)}
+  .cta h2{font-family:'Bitter',serif;font-size:clamp(2.2rem,5vw,3.2rem);margin-bottom:1rem}
+  .cta p{opacity:.9;margin-bottom:2rem}
+  .cta .btn-primary{background:var(--gold);color:#fff}
+  .cta .btn-primary:hover{background:var(--cream);color:var(--wood)}
+  footer{background:#3a2a1f;color:rgba(250,246,239,.6);text-align:center;padding:2rem;font-size:.82rem}
+  @media(max-width:860px){.hero,.story-inner{grid-template-columns:1fr}.cards{grid-template-columns:1fr 1fr}.values-inner{grid-template-columns:1fr}.navlinks{display:none}}
+</style>
+</head>
+<body>
+<div class="ribbon">Design-Vorschau · Variante D — Heimat Modern</div>
+<header>
+  <nav>
+    <span class="logo">Schuhwiedu<small>Oberaudorf · seit 2004</small></span>
+    <div class="navlinks"><a href="#">Methode</a><a href="#">Sortiment</a><a href="#">Familie</a><a href="#">Lauftreff</a></div>
+    <a href="#" class="btn btn-primary">📞 Anrufen</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div>
+    <span class="badge">🏅 20 Jahre Familienbetrieb im Inntal</span>
+    <h1>Bei uns kennst du<br>deinen Berater <em>beim Namen.</em></h1>
+    <p>Seit 2004 in Oberaudorf. Videolaufanalyse, ehrliche Beratung und ein offenes Ohr – so wie früher, nur mit moderner Technik.</p>
+    <div class="hero-actions">
+      <a href="#" class="btn btn-primary">Beratung vereinbaren</a>
+      <a href="#" class="btn btn-outline">Unsere Geschichte</a>
+    </div>
+  </div>
+  <div class="ph hero-img">Foto: Familie / Team vor dem Laden</div>
+</section>
+
+<div class="values">
+  <div class="values-inner">
+    <div class="value"><div class="ic">🤝</div><h3>Persönlich</h3><p>Echte Menschen, echte Beratung – kein anonymer Verkauf.</p></div>
+    <div class="value"><div class="ic">🏔️</div><h3>Verwurzelt</h3><p>Zuhause im Inntal. Wir kennen die Berge vor der Tür.</p></div>
+    <div class="value"><div class="ic">⏱️</div><h3>Erfahren</h3><p>Über 20 Jahre Wissen in jedem Schuh, den wir empfehlen.</p></div>
+  </div>
+</div>
+
+<section class="block">
+  <p class="label">Unsere Methode</p>
+  <h2 class="h2">So findest du deinen perfekten Schuh.</h2>
+  <p class="sub">Wir nehmen uns Zeit – Schritt für Schritt, bis es wirklich passt. Genau das schätzen unsere Kunden seit 20 Jahren.</p>
+  <div class="cards">
+    <div class="card"><div class="step">1</div><h4>Fußanalyse</h4><p>Wir schauen uns deinen Fuß genau an.</p></div>
+    <div class="card"><div class="step">2</div><h4>Videolaufband</h4><p>Dein Laufstil – in Ruhe analysiert.</p></div>
+    <div class="card"><div class="step">3</div><h4>Geländetest</h4><p>Probelaufen direkt vor der Tür.</p></div>
+    <div class="card"><div class="step">4</div><h4>Beratung</h4><p>Ehrlich, geduldig, auf Augenhöhe.</p></div>
+  </div>
+</section>
+
+<div class="story">
+  <div class="story-inner">
+    <div class="ph">Foto: Laden früher / Jubiläum</div>
+    <div>
+      <p class="label" style="color:var(--gold)">Seit 2004 in Oberaudorf</p>
+      <h2>20 Jahre <em>Leidenschaft</em> für den richtigen Schuh.</h2>
+      <p>Was als kleines Fachgeschäft begann, ist heute eine feste Adresse für alle, die laufen, wandern und sich bewegen.</p>
+      <p>Drei Menschen, eine Leidenschaft – und der Anspruch, dass jeder zufrieden aus der Tür geht.</p>
+    </div>
+  </div>
+</div>
+
+<div class="cta">
+  <h2>Komm vorbei. Wir freuen uns auf dich.</h2>
+  <p>Laurentiusstraße 24 · 83080 Oberaudorf</p>
+  <a href="#" class="btn btn-primary">📞 08033 – 308 99 77</a>
+</div>
+
+<footer>SCHUHWIEDU Oberaudorf · Design-Vorschau Variante D · DT Webstudio</footer>
+</body>
+</html>

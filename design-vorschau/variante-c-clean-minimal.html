@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Variante C · Clean Minimal · SCHUHWIEDU</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff; --soft:#f6f6f4; --ink:#14171a; --muted:#6e7378;
+    --green:#2f6f4f; --line:#e9e9e6;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Schibsted Grotesk',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+  .ribbon{background:var(--ink);color:#fff;text-align:center;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;padding:.45rem}
+  header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.8);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+  nav{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:1.2rem 2rem}
+  .logo{font-weight:700;font-size:1.15rem;letter-spacing:-.01em}
+  .navlinks{display:flex;gap:2.2rem;font-size:.9rem;color:var(--muted)}
+  .navlinks a{color:var(--muted);text-decoration:none}
+  .navlinks a:hover{color:var(--ink)}
+  .btn{font-weight:600;font-size:.88rem;padding:.6rem 1.3rem;border-radius:8px;border:none;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:.4rem;transition:.2s}
+  .btn-primary{background:var(--ink);color:#fff}
+  .btn-primary:hover{background:var(--green)}
+  .btn-text{color:var(--ink);background:transparent;padding-left:0}
+  .btn-text:hover{color:var(--green)}
+  /* HERO */
+  .hero{max-width:1100px;margin:0 auto;padding:7rem 2rem 5rem;text-align:center}
+  .eyebrow{font-size:.85rem;color:var(--green);font-weight:600;margin-bottom:1.5rem;letter-spacing:.02em}
+  .hero h1{font-size:clamp(2.6rem,6vw,4.6rem);line-height:1.05;letter-spacing:-.035em;font-weight:700;max-width:16ch;margin:0 auto 1.6rem}
+  .hero p{font-size:1.15rem;color:var(--muted);max-width:46ch;margin:0 auto 2.4rem}
+  .hero-actions{display:flex;gap:1.2rem;justify-content:center;align-items:center}
+  .hero-img{aspect-ratio:16/8;margin-top:4rem}
+  .ph{background:var(--soft);border:1px solid var(--line);border-radius:14px;display:flex;align-items:center;justify-content:center;color:#a8aaa6;font-size:.88rem}
+  /* logos row */
+  .logos{max-width:1100px;margin:0 auto;padding:0 2rem 5rem;display:flex;gap:3rem;justify-content:center;flex-wrap:wrap;color:#b8bab6;font-size:.85rem;letter-spacing:.05em}
+  /* Methode */
+  section.block{max-width:1100px;margin:0 auto;padding:6rem 2rem;border-top:1px solid var(--line)}
+  .label{font-size:.85rem;color:var(--green);font-weight:600;margin-bottom:.9rem}
+  .h2{font-size:clamp(1.9rem,4vw,2.8rem);letter-spacing:-.03em;font-weight:700;margin-bottom:1rem;line-height:1.1}
+  .sub{color:var(--muted);max-width:52ch;margin-bottom:3.5rem;font-size:1.05rem}
+  .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:2.5rem}
+  .card .step{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--green);color:var(--green);display:flex;align-items:center;justify-content:center;font-weight:600;font-size:.9rem;margin-bottom:1rem}
+  .card h4{font-size:1.1rem;font-weight:600;margin-bottom:.4rem}
+  .card p{font-size:.92rem;color:var(--muted)}
+  /* Split */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+  .split .ph{aspect-ratio:4/3}
+  /* CTA */
+  .cta{max-width:1100px;margin:0 auto 6rem;padding:5rem 2rem;background:var(--soft);border-radius:24px;text-align:center}
+  .cta h2{font-size:clamp(2rem,5vw,3rem);letter-spacing:-.03em;font-weight:700;margin-bottom:1rem}
+  .cta p{color:var(--muted);margin-bottom:2rem}
+  footer{border-top:1px solid var(--line);color:var(--muted);text-align:center;padding:2.5rem;font-size:.85rem}
+  @media(max-width:860px){.cards,.split{grid-template-columns:1fr;gap:2rem}.navlinks{display:none}}
+</style>
+</head>
+<body>
+<div class="ribbon">Design-Vorschau · Variante C — Clean Minimal</div>
+<header>
+  <nav>
+    <span class="logo">schuhwiedu</span>
+    <div class="navlinks"><a href="#">Methode</a><a href="#">Sortiment</a><a href="#">Team</a><a href="#">Lauftreff</a></div>
+    <a href="#" class="btn btn-primary">Termin vereinbaren</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <p class="eyebrow">Lauf- &amp; Bergschuh · Oberaudorf · seit 2004</p>
+  <h1>Der richtige Schuh ist kein Zufall.</h1>
+  <p>Videolaufanalyse, Geländetest und persönliche Beratung. Wir nehmen uns die Zeit, die ein guter Schuh verdient.</p>
+  <div class="hero-actions">
+    <a href="#" class="btn btn-primary">Beratung vereinbaren</a>
+    <a href="#" class="btn btn-text">So funktioniert's →</a>
+  </div>
+  <div class="ph hero-img">Foto: Laden / Beratung (breit)</div>
+</section>
+
+<div class="logos">
+  <span>ASICS</span><span>Brooks</span><span>HOKA</span><span>Salomon</span><span>On</span><span>Meindl</span>
+</div>
+
+<section class="block">
+  <p class="label">Unsere Methode</p>
+  <h2 class="h2">Vier Schritte. Ein perfekter Schuh.</h2>
+  <p class="sub">Ein ruhiges, klares System – damit du am Ende genau weißt, warum dieser Schuh der richtige für dich ist.</p>
+  <div class="cards">
+    <div class="card"><div class="step">1</div><h4>Fußanalyse</h4><p>Vermessung & Fußform als Grundlage.</p></div>
+    <div class="card"><div class="step">2</div><h4>Videolaufband</h4><p>Dein Laufstil in Zeitlupe sichtbar.</p></div>
+    <div class="card"><div class="step">3</div><h4>Geländetest</h4><p>Probelaufen auf echtem Untergrund.</p></div>
+    <div class="card"><div class="step">4</div><h4>Beratung</h4><p>Klare Empfehlung, ehrlich erklärt.</p></div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="split">
+    <div class="ph">Foto: Schuhwand / Sortiment</div>
+    <div>
+      <p class="label">Alles aus einer Hand</p>
+      <h2 class="h2">Sortiment, das man auch trägt.</h2>
+      <p class="sub">Lauf-, Trail- und Tennisschuhe, Merino-Funktionsbekleidung, Sport-BHs und Zubehör – sorgfältig ausgewählt statt endlos.</p>
+      <a href="#" class="btn btn-text">Sortiment ansehen →</a>
+    </div>
+  </div>
+</section>
+
+<div class="cta">
+  <h2>Komm einfach vorbei.</h2>
+  <p>Laurentiusstraße 24 · 83080 Oberaudorf · Mo–Fr & Sa</p>
+  <a href="#" class="btn btn-primary">📞 08033 – 308 99 77</a>
+</div>
+
+<footer>SCHUHWIEDU Oberaudorf · Design-Vorschau Variante C · DT Webstudio</footer>
+</body>
+</html>

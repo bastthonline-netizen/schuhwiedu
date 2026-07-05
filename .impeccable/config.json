@@ -1,0 +1,14 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "helvetica",
+        "reason": "Intentional: Helvetica is standard for professional print invoices",
+        "createdAt": "2026-06-28T22:19:15.000Z"
+      }
+    ]
+  }
+}

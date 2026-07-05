@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Variante A · Trail Editorial · SCHUHWIEDU</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F4F0E6; --forest:#1d3a29; --green:#3a5f43; --lime:#a7c049;
+    --ink:#2a2a24; --muted:#6b6a60; --line:#ddd6c6;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Inter',sans-serif;background:var(--paper);color:var(--ink);line-height:1.6}
+  .ribbon{background:var(--forest);color:var(--paper);text-align:center;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;padding:.45rem}
+  header{position:sticky;top:0;z-index:50;background:rgba(244,240,230,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  nav{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 2rem}
+  .logo{font-family:'Fraunces',serif;font-weight:900;font-size:1.35rem;letter-spacing:-.02em;color:var(--forest)}
+  .navlinks{display:flex;gap:2rem;font-size:.9rem;font-weight:500}
+  .navlinks a{color:var(--ink);text-decoration:none;opacity:.8}
+  .navlinks a:hover{opacity:1;color:var(--green)}
+  .btn{font-family:'Inter';font-weight:600;font-size:.9rem;padding:.7rem 1.4rem;border-radius:100px;border:none;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:.4rem;transition:.2s}
+  .btn-primary{background:var(--forest);color:var(--paper)}
+  .btn-primary:hover{background:var(--green);transform:translateY(-2px)}
+  .btn-outline{background:transparent;color:var(--forest);border:1.5px solid var(--forest)}
+  .btn-outline:hover{background:var(--forest);color:var(--paper)}
+  /* HERO */
+  .hero{max-width:1200px;margin:0 auto;padding:5rem 2rem;display:grid;grid-template-columns:1.1fr 1fr;gap:4rem;align-items:center}
+  .eyebrow{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--green);font-weight:600;margin-bottom:1.4rem}
+  .hero h1{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(2.6rem,5vw,4.2rem);line-height:1.02;letter-spacing:-.025em;color:var(--forest);margin-bottom:1.5rem}
+  .hero h1 em{font-style:italic;color:var(--green)}
+  .hero p{font-size:1.1rem;color:var(--muted);max-width:32ch;margin-bottom:2.2rem}
+  .hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
+  .ph{background:linear-gradient(135deg,#cfcab6,#e3ddca);border-radius:18px;display:flex;align-items:center;justify-content:center;color:#7a7665;font-style:italic;font-size:.85rem;position:relative;overflow:hidden}
+  .ph::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 18px,rgba(255,255,255,.18) 18px,rgba(255,255,255,.18) 19px)}
+  .hero-img{aspect-ratio:4/5}
+  /* USP strip */
+  .usps{background:var(--forest);color:var(--paper)}
+  .usps-inner{max-width:1200px;margin:0 auto;padding:2.4rem 2rem;display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+  .usp h3{font-family:'Fraunces',serif;font-size:1.3rem;margin-bottom:.3rem;font-weight:600}
+  .usp p{font-size:.9rem;opacity:.8}
+  .usp .num{font-family:'Fraunces',serif;font-size:.9rem;color:var(--lime);font-weight:600;margin-bottom:.6rem}
+  /* Methode */
+  section.block{max-width:1200px;margin:0 auto;padding:6rem 2rem}
+  .label{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--green);font-weight:600;margin-bottom:1rem}
+  .h2{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(2rem,4vw,3rem);color:var(--forest);letter-spacing:-.02em;line-height:1.05;margin-bottom:1rem}
+  .sub{color:var(--muted);max-width:54ch;margin-bottom:3rem}
+  .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+  .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:1.8rem;transition:.25s}
+  .card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(29,58,41,.1)}
+  .card .step{font-family:'Fraunces',serif;font-size:2.2rem;color:var(--lime);font-weight:900}
+  .card h4{font-family:'Fraunces',serif;font-size:1.15rem;color:var(--forest);margin:.6rem 0 .4rem}
+  .card p{font-size:.88rem;color:var(--muted)}
+  /* Sortiment teaser */
+  .sortiment{background:#ece6d6}
+  .sort-inner{max-width:1200px;margin:0 auto;padding:6rem 2rem;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+  .sort-img{aspect-ratio:1/1}
+  /* CTA */
+  .cta{background:var(--forest);color:var(--paper);text-align:center;padding:6rem 2rem}
+  .cta h2{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(2.2rem,5vw,3.4rem);margin-bottom:1rem}
+  .cta h2 em{font-style:italic;color:var(--lime)}
+  .cta p{opacity:.85;margin-bottom:2rem}
+  .cta .btn-primary{background:var(--lime);color:var(--forest)}
+  .cta .btn-primary:hover{background:#fff}
+  footer{background:#16271c;color:rgba(244,240,230,.6);text-align:center;padding:2rem;font-size:.82rem}
+  @media(max-width:860px){.hero,.sort-inner{grid-template-columns:1fr}.cards{grid-template-columns:1fr 1fr}.usps-inner{grid-template-columns:1fr}.navlinks{display:none}}
+</style>
+</head>
+<body>
+<div class="ribbon">Design-Vorschau · Variante A — Trail Editorial</div>
+<header>
+  <nav>
+    <span class="logo">SCHUHWIEDU</span>
+    <div class="navlinks"><a href="#">Methode</a><a href="#">Sortiment</a><a href="#">Team</a><a href="#">Lauftreff</a></div>
+    <a href="#" class="btn btn-primary">📞 Anrufen</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div>
+    <p class="eyebrow">Seit 2004 · Oberaudorf · Lauf &amp; Bergschuh</p>
+    <h1>Nicht irgendein Schuh.<br><em>Deiner.</em></h1>
+    <p>Mit Videolaufanalyse, echtem Geländetest und über 20 Jahren Erfahrung direkt am Inn.</p>
+    <div class="hero-actions">
+      <a href="#" class="btn btn-primary">Beratung vereinbaren</a>
+      <a href="#" class="btn btn-outline">Unsere Methode</a>
+    </div>
+  </div>
+  <div class="ph hero-img">Foto: Beratung / Team im Laden</div>
+</section>
+
+<div class="usps">
+  <div class="usps-inner">
+    <div class="usp"><div class="num">01</div><h3>Videolaufanalyse</h3><p>Wir sehen, wie du wirklich läufst – nicht, was die Schachtel verspricht.</p></div>
+    <div class="usp"><div class="num">02</div><h3>Geländetest</h3><p>Berg & Trail direkt vor der Tür. Probelaufen statt raten.</p></div>
+    <div class="usp"><div class="num">03</div><h3>20 Jahre Erfahrung</h3><p>Echte Sportler beraten echte Sportler. Persönlich.</p></div>
+  </div>
+</div>
+
+<section class="block">
+  <p class="label">Unsere Methode</p>
+  <h2 class="h2">So findest du deinen perfekten Schuh.</h2>
+  <p class="sub">Fußanalyse, Videolaufband, Geländetest und persönliche Beratung – ein klares System für ein klares Ergebnis.</p>
+  <div class="cards">
+    <div class="card"><div class="step">1</div><h4>Fußanalyse</h4><p>Vermessung & Fußform – die Basis für alles.</p></div>
+    <div class="card"><div class="step">2</div><h4>Videolaufband</h4><p>Dein Laufstil in Zeitlupe sichtbar gemacht.</p></div>
+    <div class="card"><div class="step">3</div><h4>Geländetest</h4><p>Probelaufen auf echtem Untergrund.</p></div>
+    <div class="card"><div class="step">4</div><h4>Beratung</h4><p>Wir erklären, warum dieser Schuh – nicht der.</p></div>
+  </div>
+</section>
+
+<div class="sortiment">
+  <div class="sort-inner">
+    <div class="ph sort-img">Foto: Schuhwand / Sortiment</div>
+    <div>
+      <p class="label">Alles aus einer Hand</p>
+      <h2 class="h2">Unser Sortiment.</h2>
+      <p class="sub">Lauf-, Trail- und Tennisschuhe, Funktionsbekleidung aus Merinowolle, Sport-BHs und das passende Zubehör – kuratiert, nicht überladen.</p>
+      <a href="#" class="btn btn-outline">Sortiment ansehen</a>
+    </div>
+  </div>
+</div>
+
+<div class="cta">
+  <h2>Komm vorbei.<br><em>Wir nehmen uns Zeit für dich.</em></h2>
+  <p>Laurentiusstraße 24 · 83080 Oberaudorf</p>
+  <a href="#" class="btn btn-primary">📞 08033 – 308 99 77</a>
+</div>
+
+<footer>SCHUHWIEDU Oberaudorf · Design-Vorschau Variante A · DT Webstudio</footer>
+</body>
+</html>

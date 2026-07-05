@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anfahrt-Video — Varianten-Vergleich</title>
+<link rel="stylesheet" href="../fonts/fonts.css">
+<link rel="stylesheet" href="../style.css">
+<style>
+  /* ===== Nur für diese Testseite ===== */
+  .tv-topbar {
+    position: sticky; top: 0; z-index: 50;
+    display: flex; gap: .5rem; flex-wrap: wrap; align-items: center;
+    padding: .75rem 1.25rem; background: #000; color: var(--c-text-light);
+    font-family: var(--font-sans); font-size: .85rem;
+  }
+  .tv-topbar strong { margin-right: .5rem; }
+  .tv-topbar a {
+    color: var(--c-text-light); text-decoration: none;
+    padding: .35rem .7rem; border: 1px solid var(--c-line-light); border-radius: 999px;
+  }
+  .tv-topbar a:hover { background: rgba(255,255,255,.08); }
+  .tv-label {
+    font-family: var(--font-sans); font-size: .8rem; font-weight: 600;
+    letter-spacing: .08em; text-transform: uppercase; color: var(--c-gold);
+    margin-bottom: var(--space-6);
+  }
+  .tv-label span { color: var(--c-text-light-muted); font-weight: 400; text-transform: none; letter-spacing: 0; }
+
+  /* ===== Video-Facade (Klick zum Laden) ===== */
+  .vfacade {
+    position: relative; display: block; width: 100%;
+    aspect-ratio: 16 / 10; border: 1px solid var(--c-line-light); border-radius: var(--radius-lg);
+    overflow: hidden; cursor: pointer; padding: 0; background: #000;
+    background-image: var(--thumb); background-size: cover; background-position: center;
+  }
+  .vfacade::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,.15) 0%, rgba(0,0,0,.55) 100%);
+  }
+  .vfacade-play {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+    width: 64px; height: 64px; border-radius: 999px;
+    background: rgba(255,255,255,.92); color: var(--c-primary);
+    display: grid; place-items: center; font-size: 1.4rem; z-index: 2;
+    transition: transform .2s var(--ease), background .2s var(--ease);
+  }
+  .vfacade:hover .vfacade-play { transform: translate(-50%,-50%) scale(1.08); background: #fff; }
+  .vfacade-label {
+    position: absolute; left: 0; right: 0; bottom: 0; z-index: 2;
+    padding: var(--space-4) var(--space-5);
+    font-family: var(--font-sans); font-weight: 600; font-size: .95rem;
+    color: #fff; text-align: left;
+  }
+  .vembed { aspect-ratio: 16 / 10; border-radius: var(--radius-lg); overflow: hidden; }
+  .vembed iframe { width: 100%; height: 100%; border: 0; display: block; }
+  .video-note {
+    font-size: .78rem; color: var(--c-text-light-muted); margin-top: var(--space-3); text-align: center;
+  }
+  .video-note a { color: var(--c-gold); text-decoration: underline; text-underline-offset: 2px; }
+
+  /* ===== Variante A — Stack (Karte + Video untereinander) ===== */
+  .visit-stack { display: flex; flex-direction: column; gap: var(--space-5); }
+  .visit-stack .map-consent { min-height: 0; aspect-ratio: 16 / 10; }
+  .map-tile-label, .video-tile-label {
+    font-family: var(--font-sans); font-size: .75rem; font-weight: 600; letter-spacing: .06em;
+    text-transform: uppercase; color: var(--c-gold); margin-bottom: var(--space-2);
+  }
+
+  /* ===== Variante B — Tabs ===== */
+  .visit-tabs-btns { display: flex; gap: var(--space-2); margin-bottom: var(--space-4); }
+  .visit-tab-btn {
+    flex: 1; padding: .6rem 1rem; border-radius: var(--radius-btn);
+    border: 1px solid var(--c-line-light); background: transparent; color: var(--c-text-light);
+    font-family: var(--font-sans); font-weight: 600; font-size: .9rem; cursor: pointer;
+    transition: background .2s var(--ease), border-color .2s var(--ease);
+  }
+  .visit-tab-btn[aria-selected="true"] { background: var(--c-primary); border-color: var(--c-primary); }
+  .visit-panel[hidden] { display: none; }
+
+  /* ===== Variante C — Streifen unten ===== */
+  .visit-strip { max-width: 920px; margin: var(--space-16) auto 0; text-align: center; }
+  .visit-strip .vfacade, .visit-strip .vembed { aspect-ratio: 16 / 9; }
+  .visit-strip h3 { font-family: var(--font-serif); color: var(--c-text-light); font-size: 1.4rem; margin-bottom: var(--space-2); }
+  .visit-strip .lead { color: var(--c-text-light-muted); font-family: var(--font-sans); margin-bottom: var(--space-6); }
+</style>
+</head>
+<body>
+
+<div class="tv-topbar">
+  <strong>Anfahrt-Video — Test</strong>
+  <a href="#va">Variante A · Stack</a>
+  <a href="#vb">Variante B · Tabs</a>
+  <a href="#vc">Variante C · Streifen</a>
+  <span style="margin-left:auto;opacity:.6">Video: „Schuhwiedu Anfahrtsweg"</span>
+</div>
+
+<!-- ============ VARIANTE A — Karte + Video gestapelt ============ -->
+<section class="section section-dark" id="va">
+  <div class="section-inner">
+    <p class="tv-label">Variante A — <span>Karte + Video untereinander (rechte Spalte)</span></p>
+  </div>
+  <div class="section-inner split">
+    <div class="split-text">
+      <p class="eyebrow eyebrow-light">Besuch uns</p>
+      <h2 class="section-title">Laurentiusstraße 24<br>83080 Oberaudorf</h2>
+      <div class="hours">
+        <h3>Öffnungszeiten</h3>
+        <dl>
+          <div><dt>Mo, Di, Do, Fr</dt><dd>09:00 – 12:30 · 14:30 – 18:00</dd></div>
+          <div><dt>Mittwoch</dt><dd>09:00 – 12:30</dd></div>
+          <div><dt>Samstag</dt><dd>09:00 – 13:00</dd></div>
+          <div><dt>Sonntag</dt><dd class="closed">Geschlossen</dd></div>
+        </dl>
+      </div>
+    </div>
+
+    <div class="visit-stack">
+      <div>
+        <p class="map-tile-label">Karte</p>
+        <div class="map-consent" style="aspect-ratio:16/10;min-height:0">
+          <div class="map-consent-inner">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <h3>Karte wird von Google geladen</h3>
+            <p>Beim Aktivieren werden Daten an Google übertragen.</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p class="video-tile-label">So findest du uns — Video</p>
+        <button class="vfacade" data-id="yYuTLBpKYrM" style="--thumb:url('https://i.ytimg.com/vi/yYuTLBpKYrM/hqdefault.jpg')">
+          <span class="vfacade-play">▶</span>
+          <span class="vfacade-label">Anfahrtsweg ansehen</span>
+        </button>
+        <p class="video-note">Beim Abspielen werden Daten an YouTube übertragen. <a href="#">Datenschutz</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VARIANTE B — Tabs ============ -->
+<section class="section section-dark" id="vb">
+  <div class="section-inner">
+    <p class="tv-label">Variante B — <span>Umschalter Karte ⇄ Anfahrtsvideo</span></p>
+  </div>
+  <div class="section-inner split">
+    <div class="split-text">
+      <p class="eyebrow eyebrow-light">Besuch uns</p>
+      <h2 class="section-title">Laurentiusstraße 24<br>83080 Oberaudorf</h2>
+      <div class="hours">
+        <h3>Öffnungszeiten</h3>
+        <dl>
+          <div><dt>Mo, Di, Do, Fr</dt><dd>09:00 – 12:30 · 14:30 – 18:00</dd></div>
+          <div><dt>Mittwoch</dt><dd>09:00 – 12:30</dd></div>
+          <div><dt>Samstag</dt><dd>09:00 – 13:00</dd></div>
+          <div><dt>Sonntag</dt><dd class="closed">Geschlossen</dd></div>
+        </dl>
+      </div>
+    </div>
+
+    <div class="visit-tabs">
+      <div class="visit-tabs-btns" role="tablist">
+        <button class="visit-tab-btn" role="tab" aria-selected="true" data-panel="pmap">Karte</button>
+        <button class="visit-tab-btn" role="tab" aria-selected="false" data-panel="pvid">Anfahrtsvideo</button>
+      </div>
+      <div class="visit-panel" id="pmap">
+        <div class="map-consent" style="aspect-ratio:16/10;min-height:0">
+          <div class="map-consent-inner">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <h3>Karte wird von Google geladen</h3>
+            <p>Beim Aktivieren werden Daten an Google übertragen.</p>
+          </div>
+        </div>
+      </div>
+      <div class="visit-panel" id="pvid" hidden>
+        <button class="vfacade" data-id="yYuTLBpKYrM" style="--thumb:url('https://i.ytimg.com/vi/yYuTLBpKYrM/hqdefault.jpg')">
+          <span class="vfacade-play">▶</span>
+          <span class="vfacade-label">So findest du uns — Anfahrtsweg</span>
+        </button>
+        <p class="video-note">Beim Abspielen werden Daten an YouTube übertragen. <a href="#">Datenschutz</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VARIANTE C — Streifen unten ============ -->
+<section class="section section-dark" id="vc">
+  <div class="section-inner">
+    <p class="tv-label">Variante C — <span>Eigener Streifen „So findest du uns" unter der Sektion</span></p>
+  </div>
+  <div class="section-inner split">
+    <div class="split-text">
+      <p class="eyebrow eyebrow-light">Besuch uns</p>
+      <h2 class="section-title">Laurentiusstraße 24<br>83080 Oberaudorf</h2>
+      <div class="hours">
+        <h3>Öffnungszeiten</h3>
+        <dl>
+          <div><dt>Mo, Di, Do, Fr</dt><dd>09:00 – 12:30 · 14:30 – 18:00</dd></div>
+          <div><dt>Mittwoch</dt><dd>09:00 – 12:30</dd></div>
+          <div><dt>Samstag</dt><dd>09:00 – 13:00</dd></div>
+          <div><dt>Sonntag</dt><dd class="closed">Geschlossen</dd></div>
+        </dl>
+      </div>
+    </div>
+    <div class="split-visual">
+      <div class="map-consent">
+        <div class="map-consent-inner">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <h3>Karte wird von Google geladen</h3>
+          <p>Beim Aktivieren werden Daten an Google übertragen.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-inner">
+    <div class="visit-strip">
+      <h3>So findest du uns</h3>
+      <p class="lead">Eine kurze Wegbeschreibung zum Laden — einfach abspielen.</p>
+      <button class="vfacade" data-id="yYuTLBpKYrM" style="--thumb:url('https://i.ytimg.com/vi/yYuTLBpKYrM/hqdefault.jpg')">
+        <span class="vfacade-play">▶</span>
+        <span class="vfacade-label">Anfahrtsweg zum Laden</span>
+      </button>
+      <p class="video-note">Beim Abspielen werden Daten an YouTube übertragen. <a href="#">Datenschutz</a></p>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('click', (e) => {
+    const f = e.target.closest('.vfacade');
+    if (f) {
+      const id = f.dataset.id;
+      const wrap = document.createElement('div');
+      wrap.className = 'vembed';
+      wrap.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0" title="Anfahrtsweg" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+      f.replaceWith(wrap);
+      return;
+    }
+    const tab = e.target.closest('.visit-tab-btn');
+    if (tab) {
+      const box = tab.closest('.visit-tabs');
+      box.querySelectorAll('.visit-tab-btn').forEach(b => b.setAttribute('aria-selected', b === tab ? 'true' : 'false'));
+      box.querySelectorAll('.visit-panel').forEach(p => p.hidden = (p.id !== tab.dataset.panel));
+    }
+  });
+</script>
+</body>
+</html>
